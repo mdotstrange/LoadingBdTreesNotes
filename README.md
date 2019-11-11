@@ -16,38 +16,38 @@ You have to change the following tasks- CanSeeObject, WithinDistance, Search
 On CanSeeObject make line 24 look like this-
 
 ```
- public LayerMask ignoreLayerMask;
+public LayerMask ignoreLayerMask;
 ```
  
  line 49 like this-
  
  ```
-      private int ignoreRaycastLayer;
+ private int ignoreRaycastLayer;
  ```
  
  and add this on line 50 or 51-
  
  ```
-      public override void OnStart()
-        {
+public override void OnStart()
+{
             base.OnStart();
             ignoreRaycastLayer = LayerMask.NameToLayer("Ignore Raycast");
-        }
+}
         ```
 
 On WithinDistance make line 26 look like this-
 
 ```
-      public LayerMask ignoreLayerMask;
-      ```
+public LayerMask ignoreLayerMask;
+```
 
 Delete line 119
 
 On Search make line 28 look like this-
 
 ```
-        public LayerMask ignoreLayerMask;
-        ```
+public LayerMask ignoreLayerMask;
+```
         
 That should do it!
 
