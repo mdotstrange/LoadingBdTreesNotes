@@ -39,3 +39,25 @@ That should do it!
 Here's a chart showing the performance improvements in my game loading a group of enemies during gameplay-
 
 ![alt text](https://i.imgur.com/44QcJIZ.png)
+
+As you can see just using Async loading gives a huge performance boost- here's how to get more using 
+Mec (More Effective Coroutines) which is a free on the asset store.
+
+What I did was every simple- I add all my Enemies with Btrees to a list- then to activate them I loop through
+the list and wait a single frame between activations like so- here's a simple example of what I did-
+
+ IEnumerator<float> _DelayedActivation()
+    {
+        for (int index = 0; index < EnemySpawns.Count; index++)
+        {
+            var i = EnemySpawns[index];
+
+            ActivationProcess(i);
+            yield return Timing.WaitForOneFrame;           
+         }
+
+        yield break;
+      }
+      
+In Summary- using Async Loading in Behavior Designer gives you a huge boost + waiting a frame between loading your enemies/agents using a tool like MEC that doesn't generate garbage helps too. I've read about pooling external behavior trees for performance gains but haven't tried that yet.
+
