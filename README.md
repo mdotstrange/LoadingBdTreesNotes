@@ -14,25 +14,35 @@ Anyway its a simple fix.
 You have to change the following tasks- CanSeeObject, WithinDistance, Search
 
 On CanSeeObject make line 24 look like this-
+```
  public LayerMask ignoreLayerMask;
+ ```
  
  line 49 like this-
+ ```
       private int ignoreRaycastLayer;
+      ```
  
  and add this on line 50 or 51-
+ ```
       public override void OnStart()
         {
             base.OnStart();
             ignoreRaycastLayer = LayerMask.NameToLayer("Ignore Raycast");
         }
+        ```
 
 On WithinDistance make line 26 look like this-
+```
       public LayerMask ignoreLayerMask;
+      ```
 
 Delete line 119
 
 On Search make line 28 look like this-
+```
         public LayerMask ignoreLayerMask;
+        ```
         
 That should do it!
 
@@ -45,7 +55,7 @@ Mec (More Effective Coroutines) which is a free on the asset store.
 
 What I did was every simple- I add all my Enemies with Btrees to a list- then to activate them I loop through
 the list and wait a single frame between activations like so- here's a simple example of what I did-
-
+```
  IEnumerator<float> _DelayedActivation()
     {
         for (int index = 0; index < EnemySpawns.Count; index++)
@@ -58,6 +68,7 @@ the list and wait a single frame between activations like so- here's a simple ex
 
         yield break;
       }
+      ```
       
 In Summary- using Async Loading in Behavior Designer gives you a huge boost + waiting a frame between loading your enemies/agents using a tool like MEC that doesn't generate garbage helps too. I've read about pooling external behavior trees for performance gains but haven't tried that yet.
 
