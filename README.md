@@ -14,16 +14,19 @@ Anyway its a simple fix.
 You have to change the following tasks- CanSeeObject, WithinDistance, Search
 
 On CanSeeObject make line 24 look like this-
+
 ```
  public LayerMask ignoreLayerMask;
- ```
+```
  
  line 49 like this-
+ 
  ```
       private int ignoreRaycastLayer;
-      ```
+ ```
  
  and add this on line 50 or 51-
+ 
  ```
       public override void OnStart()
         {
@@ -33,6 +36,7 @@ On CanSeeObject make line 24 look like this-
         ```
 
 On WithinDistance make line 26 look like this-
+
 ```
       public LayerMask ignoreLayerMask;
       ```
@@ -40,6 +44,7 @@ On WithinDistance make line 26 look like this-
 Delete line 119
 
 On Search make line 28 look like this-
+
 ```
         public LayerMask ignoreLayerMask;
         ```
@@ -55,6 +60,7 @@ Mec (More Effective Coroutines) which is a free on the asset store.
 
 What I did was every simple- I add all my Enemies with Btrees to a list- then to activate them I loop through
 the list and wait a single frame between activations like so- here's a simple example of what I did-
+
 ```
  IEnumerator<float> _DelayedActivation()
     {
