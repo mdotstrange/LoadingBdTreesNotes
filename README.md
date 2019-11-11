@@ -58,7 +58,7 @@ Here's a chart showing the performance improvements in my game loading a group o
 As you can see just using Async loading gives a huge performance boost- here's how to get more using 
 Mec (More Effective Coroutines) which is a free on the asset store.
 
-What I did was every simple- I add all my Enemies with Btrees to a list- then to activate them I loop through
+What I did was very simple- I add all my Enemies with Btrees to a list- then to activate them I loop through
 the list and wait a single frame between activations like so- here's a simple example of what I did-
 
 ```
